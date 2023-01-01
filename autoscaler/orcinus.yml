@@ -1,0 +1,14 @@
+stack: "orcinus"
+services:
+    autoscaler:
+        image: "orcinus/autoscaler"
+        constraint: "node.role==manager"
+        environment:
+          - PROMETHEUS_URL=http://prometheus:9090
+        volumes:
+          - "docker"
+volumes:
+    docker:
+        type: "bind"
+        source: "/var/run/docker.sock"
+        target: "/var/run/docker.sock"

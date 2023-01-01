@@ -1,0 +1,12 @@
+stack: "orcinus"
+services:
+    cadvisor:
+        image: "google/cadvisor:v0.25.0"
+        mode: "global"
+        volumes:
+          - "docker"
+volumes:
+    docker:
+        type: "bind"
+        source: "/var/run/docker.sock"
+        target: "/var/run/docker.sock"
